@@ -1,0 +1,22 @@
+{% extends 'Chat/base.html' %}
+
+{% block content %}
+
+<div class="login">
+
+    <form method="POST" action="#">
+    {% csrf_token %}
+    {% for message in messages %}
+    <p class="error">{{message}}</p>
+    {% endfor %}
+    {{ form.as_p }}
+    <button type="submit"><a href="{% url 'signin' %}">Login</a></button>
+    <div class="signup_link">
+        Not a Student Yet? <a href="{% url 'register' %}">Register Here</a>
+    </div>
+      
+  </form>
+</div>
+  
+
+{% endblock %}
